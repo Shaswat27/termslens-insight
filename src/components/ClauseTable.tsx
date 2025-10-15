@@ -16,7 +16,7 @@ export const ClauseTable = ({ title, clauses }: ClauseTableProps) => {
       </h2>
       
       <div className="space-y-1">
-        <div className="grid grid-cols-[140px_1fr] md:grid-cols-[180px_1fr] gap-4 pb-3 border-b border-border">
+        <div className="grid grid-cols-[90px_1fr] md:grid-cols-[180px_1fr] gap-4 pb-3 border-b border-border">
           <div className="font-semibold text-sm text-foreground">Clause</div>
           <div className="font-semibold text-sm text-foreground">Summary</div>
         </div>
@@ -24,7 +24,7 @@ export const ClauseTable = ({ title, clauses }: ClauseTableProps) => {
         {clauses.map((clause, index) => (
           <div 
             key={index}
-            className="grid grid-cols-[140px_1fr] md:grid-cols-[180px_1fr] gap-4 py-4 border-b border-border last:border-0"
+            className="grid grid-cols-[90px_1fr] md:grid-cols-[180px_1fr] gap-4 py-4 border-b border-border last:border-0"
           >
             <div className="font-medium text-sm text-foreground">
               {clause.name}
