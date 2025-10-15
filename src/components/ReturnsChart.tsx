@@ -36,7 +36,7 @@ export const ReturnsChart = () => {
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart 
               data={chartData}
-              margin={{ top: 10, right: 10, left: 0, bottom: 70 }}
+              margin={{ top: 10, right: 10, left: 0, bottom: 40 }}
             >
               <defs>
                 <linearGradient id="colorCompany" x1="0" y1="0" x2="0" y2="1">
@@ -75,8 +75,7 @@ export const ReturnsChart = () => {
                 verticalAlign="bottom" 
                 height={36}
                 iconType="line"
-                formatter={(value) => value.charAt(0).toUpperCase() + value.slice(1)}
-                wrapperStyle={{ paddingTop: '10px' }}
+                wrapperStyle={{ paddingTop: '20px' }}
               />
               <Area 
                 type="monotone" 
