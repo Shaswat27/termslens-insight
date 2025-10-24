@@ -107,3 +107,8 @@ All colors MUST be HSL.
     @apply font-semibold tracking-tight;
   }
 }
+
+/* In your globals.css */
+html {
+  overflow-y: scroll;
+}
