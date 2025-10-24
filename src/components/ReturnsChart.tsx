@@ -1,4 +1,4 @@
-import { Area, AreaChart, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend } from "recharts";
+import { Area, AreaChart, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import { ChartConfig, ChartContainer, ChartTooltipContent } from "@/components/ui/chart";
 
 const chartData = [
@@ -36,7 +36,7 @@ export const ReturnsChart = () => {
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart 
               data={chartData}
-              margin={{ top: 10, right: 10, left: 0, bottom: 40 }}
+              margin={{ top: 10, right: 10, left: 0, bottom: 30 }}
             >
               <defs>
                 <linearGradient id="colorCompany" x1="0" y1="0" x2="0" y2="1">
@@ -71,12 +71,6 @@ export const ReturnsChart = () => {
                 }}
               />
               <Tooltip content={<ChartTooltipContent />} />
-              <Legend 
-                verticalAlign="bottom" 
-                height={36}
-                iconType="line"
-                wrapperStyle={{ paddingTop: '20px' }}
-              />
               <Area 
                 type="monotone" 
                 dataKey="investors" 
