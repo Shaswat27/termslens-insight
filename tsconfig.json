@@ -5,12 +5,28 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
+      // You might want a path alias for API utils too, e.g.:
+      // "@/api/*": ["./api/*"]
     },
     "noImplicitAny": false,
     "noUnusedParameters": false,
     "skipLibCheck": true,
     "allowJs": true,
     "noUnusedLocals": false,
-    "strictNullChecks": false
-  }
+    "strictNullChecks": false,
+    // --- Additions ---
+    "resolveJsonModule": true, // Often needed in Node.js backends
+    "esModuleInterop": true // Good practice for Node.js compatibility
+    // Ensure 'target' and 'module'/'moduleResolution' from tsconfig.app.json are appropriate
+    // (ES2020 target and 'bundler'/'NodeNext' moduleResolution are usually fine for Vercel)
+  },
+  // --- Additions ---
+  "include": [
+    "src/**/*", // Keep including your frontend source
+    "api/**/*" // Add your Vercel functions directory
+  ],
+  "exclude": [
+    "node_modules",
+    "dist" // Exclude build output
+  ]
 }
