@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Test files
+test-files/
+
+# Debug output files
+extracted_debug_*.txt

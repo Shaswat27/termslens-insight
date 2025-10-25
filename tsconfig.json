@@ -1,11 +1,14 @@
+// tsconfig.json (Root)
 {
   "files": [],
   "references": [{ "path": "./tsconfig.app.json" }],
   "compilerOptions": {
+    "target": "ES2020", // Or higher if needed
+    "module": "NodeNext", // *** Change module to NodeNext ***
+    "moduleResolution": "NodeNext", // *** Change moduleResolution to NodeNext ***
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-      // You might want a path alias for API utils too, e.g.:
       // "@/api/*": ["./api/*"]
     },
     "noImplicitAny": false,
@@ -14,19 +17,17 @@
     "allowJs": true,
     "noUnusedLocals": false,
     "strictNullChecks": false,
-    // --- Additions ---
-    "resolveJsonModule": true, // Often needed in Node.js backends
-    "esModuleInterop": true // Good practice for Node.js compatibility
-    // Ensure 'target' and 'module'/'moduleResolution' from tsconfig.app.json are appropriate
-    // (ES2020 target and 'bundler'/'NodeNext' moduleResolution are usually fine for Vercel)
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true // Good practice with esModuleInterop
   },
-  // --- Additions ---
   "include": [
-    "src/**/*", // Keep including your frontend source
-    "api/**/*" // Add your Vercel functions directory
+    "src/**/*",
+    "api/**/*",
+    "testExtract.ts" // Ensure the test script is included
   ],
   "exclude": [
     "node_modules",
-    "dist" // Exclude build output
+    "dist"
   ]
 }
