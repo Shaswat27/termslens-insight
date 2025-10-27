@@ -28,3 +28,4 @@ test-files/
 
 # Debug output files
 extracted_debug_*.txt
+gemini_analysis_debug_*.txt

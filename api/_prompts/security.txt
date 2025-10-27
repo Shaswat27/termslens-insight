@@ -1,0 +1,30 @@
+Extract the specific economic data points required for payoff calculations from the following term sheet text. Respond only with a single, valid JSON object containing the exact keys listed below.
+
+If a value is explicitly stated, provide it in the specified type (Number, String, Boolean). If a value is mentioned but ambiguous (e.g., "standard anti-dilution"), use a descriptive string. If a value is not found or not applicable (e.g., preMoneyValuation for a SAFE), use null. Do not calculate values (e.g., post-money) unless they are explicitly stated in the text. Do not include any introductory text, concluding remarks, explanations, or markdown formatting like \`\`\`json ... \`\`\`.
+
+Keys to extract:
+securityType: (String: e.g., "Series A Preferred Stock", "SAFE", "Convertible Note")
+preMoneyValuation: (Number or null)
+postMoneyValuation: (Number or null, only if explicitly stated)
+investmentAmountCurrentRound: (Number or null)
+liquidationPreferenceMultiple: (Number: e.g., 1 for 1x, 2 for 2x; null if not applicable)
+isParticipatingPreferred: (Boolean or null: true if participating, false if not, null if not applicable)
+participationCapMultiple: (Number or null: e.g., 3 for 3x cap; null if non-participating, uncapped, or not applicable)
+dividendRatePercent: (Number or null: e.g., 8 for 8%)
+isDividendCumulative: (Boolean or null: true if cumulative, false if not)
+antiDilutionType: (String: e.g., "Broad-Based Weighted Average", "Full Ratchet", "None", or null)
+optionPoolPercent: (Number or null: e.g., 15 for 15%)
+optionPoolTiming: (String: "pre-money", "post-money", or null. Deduce this from whether the pre-money valuation is explicitly based on a capitalization table that already includes the new pool.)
+safeValuationCap: (Number or null: Amount for SAFEs/Notes)
+safeDiscountPercent: (Number or null: e.g., 20 for 20% discount on SAFEs/Notes)
+noteInterestRatePercent: (Number or null: e.g., 5 for 5% on Notes)
+noteMaturityMonths: (Number or null: Number of months for Notes)
+interestConvertsToEquity: (Boolean or null: For Notes - true if interest converts into equity, false if paid out first, null if unclear/not applicable)
+
+Respond ONLY with the JSON object.
+Example:
+{
+  "securityType": "...",
+  "preMoneyValuation": ...,
+  "postMoneyValuation": ...
+}

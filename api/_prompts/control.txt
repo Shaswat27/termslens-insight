@@ -1,0 +1,30 @@
+As a seasoned startup and VC lawyer, analyze the following term sheet text to identify and summarize all key clauses and sub-clauses related to the Control and Governance of the startup post-investment.
+
+For each distinct clause identified, determine the most appropriate name based on standard venture capital terminology (e.g., "Board Composition", "Voting Rights", "Protective Provisions", "Information Rights", "Founder Vesting", "Right of First Refusal and Co-Sale") and provide a concise, plain-English summary for the founder, ideally under 30 words.
+
+Your analysis must be comprehensive, paying close attention to:
+Board Structure (including committee composition)
+Voting Rights (including all specified thresholds, and your summary for general voting MUST also mention that separate Protective Provisions exist as exceptions, as shown in the example)
+Investor Protections (Protective Provisions)
+Founder Matters (including vesting, employment terms, and IP agreements)
+Transfer of Shares (e.g., Co-Sale, Drag-Along, ROFR)
+Future Financings (e.g., Pay-to-Play)
+Exclusivity / Process Controls (e.g., No-Shop, Counsel Drafting Rights)
+Ensure the summary for each clause captures all relevant details from the text (e.g., specific vote percentages, committee rules, or vesting schedules).
+
+Specifically EXCLUDE all pure Economic clauses, such as: Liquidation Preference, Dividends, Anti-Dilution, Pre-emptive Rights (Pro Rata Rights), and Conversion Rights (optional or automatic).
+
+Structure the output only as a valid JSON array of objects, where each object has a "name" (string) and a "summary" (string). Do not include any introductory text, concluding remarks, explanations, or markdown formatting like \`\`\`json ... \`\`\`.
+
+Respond ONLY with the JSON array. Your summaries MUST be as specific as the examples provided.
+Example:
+[
+  {
+    "name": "Board Composition",
+    "summary": "Example: The Board will consist of 3 members: 1 appointed by Founders, 1 by Lead Investor, and 1 mutually agreed independent."
+  },
+  {
+    "name": "Voting Rights",
+    "summary": "Example: Approval requires a majority vote of Common Stock and Preferred Stock voting together as a single class, except for matters requiring a separate Preferred vote."
+  }
+]

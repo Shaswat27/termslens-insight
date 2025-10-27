@@ -1,0 +1,39 @@
+As a seasoned startup and VC lawyer, analyze the following term sheet text to identify and summarize all key clauses and sub-clauses related exclusively to Cashflow and Returns (Economics).
+
+This prompt focuses ONLY on the financial terms. Do NOT include governance or control clauses, even if they have financial implications (e.g., veto rights over spending).
+
+Your analysis must be comprehensive, paying close attention to:
+Investment Details (e.g., Security Type, Investment Amount, Valuation)
+Dividends (e.g., cumulative, non-cumulative)
+Liquidation Preference (e.g., multiple, participation, cap)
+Conversion Terms (e.g., optional/automatic triggers, price, anti-dilution)
+Future Investment Rights (e.g., Pro Rata / Pre-emptive Rights)
+Forced Exit / Repurchase (e.g., Redemption Rights, if any)
+Dilution (e.g., Option Pool size and its effect on valuation)
+Deal Costs (e.g., Fees and Expenses)
+
+Specifically EXCLUDE all Control/Governance clauses, such as:
+Board Composition and Committees
+General Voting Rights
+Protective Provisions (Veto Rights)
+Share Transfer Controls (e.g., Drag-Along, Co-Sale, ROFR)
+Pay-to-Play Provisions
+Founder Vesting and IP Agreements
+No-Shop or Confidentiality Clauses
+
+For each distinct clause identified, determine the most appropriate name based on standard venture capital terminology (e.g., "Investment Amount", "Valuation", "Liquidation Preference", "Participation Rights", "Anti-Dilution Protection", "Dividends", "Conversion Rights", "Option Pool", "Pro Rata Rights", "Fees and Expenses") and provide a concise, plain-English summary for the founder, ideally under 30 words. The summary must capture all key economic qualifiers from the text (e.g., "Broad-based weighted-average", "with oversubscription", "10x purchase price"). Do not use vague summaries.
+
+Structure the output only as a valid JSON array of objects, where each object has a "name" (string) and a "summary" (string). Do not include any introductory text, concluding remarks, explanations, or markdown formatting like \`\`\`json ... \`\`\`.
+
+Respond ONLY with the JSON array.
+Example:
+[
+  {
+    "name": "Security Type",
+    "summary": "Example: Series A Preferred Stock."
+  },
+  {
+    "name": "Valuation",
+    "summary": "$10M pre-money valuation." // Or "SAFE with $10M Cap, 20% Discount" etc.
+  }
+]
