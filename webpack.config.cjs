@@ -58,7 +58,9 @@ module.exports = {
       directory: path.join(__dirname, "public"),
     },
     compress: true,
-    port: 8080,
+    port: Number(process.env.PORT) || 8080,
+    host: '0.0.0.0',
+    allowedHosts: 'all',
     open: true,
     hot: true,
     historyApiFallback: true, // Important for single-page apps with routing
