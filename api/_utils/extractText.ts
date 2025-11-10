@@ -1,9 +1,11 @@
 // /api/_utils/extractText.ts
 import fs from 'fs/promises';
 import path from 'path';
+import { createRequire } from 'module';
 
 // This import is for pdf-parse v1.1.1
-import PDFParse from 'pdf-parse';
+const require = createRequire(import.meta.url);
+const PDFParse = require('pdf-parse');
 import mammoth from 'mammoth';
 
 // Define supported MIME types
