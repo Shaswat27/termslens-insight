@@ -1,8 +1,10 @@
 // /api/_utils/extractText.ts
 import fs from 'fs/promises';
 import path from 'path';
+// @ts-ignore - This deep import is correct for the Vercel Node.js runtime
+import PDFParse from 'pdf-parse/lib/pdf-parse.js';
 // Correct v2 Import: Use the named export PDFParse
-import { PDFParse, type LoadParameters } from 'pdf-parse';
+import type {LoadParameters } from 'pdf-parse';
 import mammoth from 'mammoth';
 
 // Define supported MIME types

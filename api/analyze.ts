@@ -33,7 +33,7 @@ export default async function handler(
     // 2. Parse the multipart/form-data
     const form = formidable({
       maxFileSize: 10 * 1024 * 1024, // 10MB limit
-      // formidable will stream file to a temp path
+      uploadDir: '/tmp', // formidable will stream file to a temp path
     });
 
     const [fields, files] = await form.parse(req);
