@@ -1,6 +1,7 @@
 // /api/_utils/analyzeText.ts
 import fs from 'fs/promises';
 import path from 'path';
+import { fileURLToPath } from 'url';
 // Use the EXACT import as requested
 import {
     GoogleGenAI,
@@ -17,7 +18,9 @@ const API_KEY = process.env.GOOGLE_API_KEY; // Using the key name established ea
 const MODEL_FLASH = "gemini-2.5-flash";
 const MODEL_FLASH_LITE = "gemini-2.5-flash-lite";
 
-const PROMPT_DIR = path.resolve(process.cwd(), 'api', '_prompts');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const PROMPT_DIR = path.resolve(__dirname, '..', '_prompts');
 const CONTROL_PROMPT_FILE = path.join(PROMPT_DIR, 'control.txt');
 const ECONOMICS_PROMPT_FILE = path.join(PROMPT_DIR, 'economics.txt');
 const SECURITY_PROMPT_FILE = path.join(PROMPT_DIR, 'security.txt');
@@ -84,7 +87,7 @@ function safeParseJson<T>(jsonString: string, defaultValue: T): T {
 async function writeDebugOutput(data: AnalysisResult): Promise<void> {
     const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
     const debugFileName = `gemini_analysis_debug_${timestamp}.txt`;
-    const debugFilePath = path.join(process.cwd(), debugFileName);
+    const debugFilePath = path.join('/tmp', debugFileName);
     try {
         const formattedJson = JSON.stringify(data, null, 2);
         await fs.writeFile(debugFilePath, formattedJson);

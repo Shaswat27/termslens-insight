@@ -1,10 +1,8 @@
 // /api/_utils/extractText.ts
 import fs from 'fs/promises';
 import path from 'path';
-// @ts-ignore - This deep import is correct for the Vercel Node.js runtime
-import PDFParse from 'pdf-parse/lib/pdf-parse.js';
 // Correct v2 Import: Use the named export PDFParse
-import type {LoadParameters } from 'pdf-parse';
+import {PDFParse, type LoadParameters} from 'pdf-parse';
 import mammoth from 'mammoth';
 
 // Define supported MIME types
@@ -83,7 +81,7 @@ export async function extractText(fileBuffer: Buffer, mimeType: string): Promise
 
     // --- Debugging: Write extracted text to a file ---
     const debugFileName = `extracted_debug_${Date.now()}.txt`;
-    const debugFilePath = path.join(process.cwd(), debugFileName);
+    const debugFilePath = path.join('/tmp', debugFileName);
     try {
       await fs.writeFile(debugFilePath, extractedText);
       console.log(`Debug: Extracted text saved to ${debugFileName}`);
