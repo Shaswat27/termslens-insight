@@ -9,6 +9,7 @@ import type { AnalysisResult } from './_utils/types.js'; // Your shared type
 const ALLOWED_MIMETYPES: string[] = [
   'application/pdf',
   'application/vnd.openxmlformats-officedocument.wordprocessingml.document', // .docx
+  'application/msword', // .doc
 ];
 
 // Disable Vercel's default body parser

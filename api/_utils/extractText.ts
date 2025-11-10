@@ -12,6 +12,7 @@ import mammoth from 'mammoth';
 const SUPPORTED_MIME_TYPES = {
   PDF: 'application/pdf',
   DOCX: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+  MSWORD: 'application/msword',
 } as const;
 
 type SupportedMimeType = typeof SUPPORTED_MIME_TYPES[keyof typeof SUPPORTED_MIME_TYPES];
@@ -40,6 +41,7 @@ export async function extractText(fileBuffer: Buffer, mimeType: string): Promise
         console.log(`PDF parsing successful. Extracted ${extractedText.length} characters.`);
         break;
 
+      case SUPPORTED_MIME_TYPES.MSWORD:
       case SUPPORTED_MIME_TYPES.DOCX:
         console.log('Parsing DOCX...');
         const docxResult: MammothResult = await mammoth.extractRawText({ buffer: fileBuffer });
